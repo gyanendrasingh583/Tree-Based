@@ -1,0 +1,19 @@
+Given a binary tree and an integer S, check whether there is root to leaf path wiht its sum as S.
+
+Tree = 
+            1
+          /   \
+        2      3
+S = 2
+Output: 0
+
+
+bool hasPathSum(Node *node, int sum) {
+    if(node == NULL)
+        return 0;
+        int sum_now = sum - node->data;
+    if(sum_now ==0 && node->left ==NULL && node->right ==NULL)
+        return 1;
+   return hasPathSum(node->left,  sum_now) ||  hasPathSum(node->right,  sum_now);
+    
+}
